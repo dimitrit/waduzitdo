@@ -4,10 +4,8 @@ An implementation of WADUZITDO for the KIM-1.
 ### Introduction
 WADUZITDO is a high level interpreted language that fits in less than 256 bytes of memory on a 6502 based system. The language was conceived by Larry Kheriaty to demonstrate 'what a computer can do in a manner simple enough for almost anyone to understand'. [^1]
 
-A small number of examples showing the capabilities of the language are included.
-
 ### WADUZITDO statements
-WADUZITDO is derived from the PILOT language. For the sake of simplicity WADUZITDO supports only 5 statements: 
+WADUZITDO is derived from the PILOT language [^2]. For the sake of simplicity WADUZITDO supports only 5 statements: 
 
 `T:text`  
    The _type_ statement displays a line of text on the terminal.
@@ -53,21 +51,23 @@ The WADUZITDO environment includes a simple editor. Because of the editor's sign
    Backspace to correct typing error.
 
 `↲` (or enter)
-   End statement
+   End program line or statement.
 
-Any other character  
-   Character stored in program memory and advance edit pointer.
+Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum line of a program line is 64 characters. The maximum lenght of a user program is 256 characters.
 
+Note that because of the minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
 
 Refer to Kheriaty's BYTE article for further details on the WADUZITDO statements and editor.
 
 ### Building WADUZITDO
-The source code uses vasm '8-bit oldstyle' syntax [^2] and can be built using the `vasm6502_oldstyle` assembler. This assembler, and the sources required to build it, can be downloaded from the vasm website [^3]. Since the code does not make use of vasm specific features it should be relatively simple to modify it for other 6502 compilers. 
+The source code uses vasm '8-bit oldstyle' syntax [^3] and can be built using the `vasm6502_oldstyle` assembler. This assembler, and the sources required to build it, can be downloaded from the vasm website [^4]. Since the code does not make use of vasm specific features it should be relatively simple to modify it for other 6502 compilers. 
 
 A `Makefile` is provided for environments that support `make(1)`.
 
 [^1]: Larry Kheriaty, ‘WADUZITDO: How to Write a Language in 256 Words or Less’, in The BYTE Book of Pascal, ed. by Blaise W. Liffick (Peterborough, NH: BYTE Publications, 1979), pp. 97–105.
 
-[^2]: Volker Barthelmann and Frank Wille, _‘Vasm Assembler System’_ (2022), <http://sun.hasenbraten.de/vasm/release/vasm.pdf> [accessed 25 November 2022].
+[^2]: ‘PILOT’, Wikipedia, 2021 <https://en.wikipedia.org/w/index.php?title=PILOT&oldid=1058013823> [accessed 1 January 2023].
 
-[^3]: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
+[^3]: Volker Barthelmann and Frank Wille, _‘Vasm Assembler System’_ (2022), <http://sun.hasenbraten.de/vasm/release/vasm.pdf> [accessed 25 November 2022].
+
+[^4]: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
