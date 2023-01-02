@@ -18,19 +18,29 @@ WADUZITDO is derived from the PILOT language [^2]. For the sake of simplicity WA
 
 `Y<statement>`  
 `N<statement>`  
-   Statements can be conditionally executed after the match flag is set. This is done by placing either a `Y` (yes) or `N` (no) immediately before a statement. For example:
-
-    T:WHAT IS 2+3?
-    A:
-    M:5
-    YT:FIVE IS RIGHT!
-    NT:NO, THE ANSWER IS 5.  
+   Statements can be conditionally executed after the match flag is set. This is done by placing either a `Y` (yes) or `N` (no) immediately before a statement.
 
 `J:<number>`  
    Statements are executed sequentially. The _jump_ statement can be used to alter the normal sequence. The jump statement `J` is followed by a colon and a number from zero to nine. The `J:0` statement causes a branch back to the most recently executed _accept_ statement. Other values, one to nine, cause a branch to the n<sup>th</sup> program marker `*` forward from the jump.
    
 `S:`  
    The _stop_ statement terminates execution of the program and returns control to the WADUZITDO editor.
+
+### Example code
+
+Following is a simple example that demonstrates some of WADUZITDO's capabilities:
+
+```
+    T:WHAT IS 2+3?
+    A:
+    M:5
+    YT:FIVE IS RIGHT!
+    YJ:1
+    NT:NO, THE ANSWER IS 5.  
+    NJ:0
+    *T:GOODBYE!
+    S:
+```
    
 ### WADUZITDO editor
 The WADUZITDO environment includes a simple editor. Because of the editor's significant limitations it is considerably easier to write programs in a more capable editor and then copy and paste them into WADUZITDO. Nevertheless, following are the editor commands for those who relish a 'retro' experience:
@@ -53,11 +63,11 @@ The WADUZITDO environment includes a simple editor. Because of the editor's sign
 `↲` (or enter)
    End program line or statement.
 
-Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum line of a program line is 64 characters. The maximum lenght of a user program is 256 characters.
+Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum length of a program line is 64 characters. The maximum length of a user program is 256 characters.
 
-Note that because of the minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
+Note that because of WADUZITDO's minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
 
-Refer to Kheriaty's BYTE article for further details on the WADUZITDO statements and editor.
+Refer to Kheriaty's BYTE article for further details on WADUZITDO statements and the editor.
 
 ### Building WADUZITDO
 The source code uses vasm '8-bit oldstyle' syntax [^3] and can be built using the `vasm6502_oldstyle` assembler. This assembler, and the sources required to build it, can be downloaded from the vasm website [^4]. Since the code does not make use of vasm specific features it should be relatively simple to modify it for other 6502 compilers. 
