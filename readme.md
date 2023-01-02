@@ -36,7 +36,7 @@ Following is a simple example that demonstrates some of WADUZITDO's capabilities
     M:5
     YT:FIVE IS RIGHT!
     YJ:1
-    NT:NO, THE ANSWER IS 5.  
+    NT:NO, TRY AGAIN:  
     NJ:0
     *T:GOODBYE!
     S:
