@@ -2,7 +2,7 @@
 An implementation of WADUZITDO for the KIM-1.
 
 ### Introduction
-WADUZITDO is a high level interpreted language that fits in less than 256 bytes of memory on a 6502 based system. The language was conceived by Larry Kheriaty to demonstrate 'what a computer can do in a manner simple enough for almost anyone to understand'. [^1]
+WADUZITDO is a high level interpreted language that fits in just over 256 bytes of memory on a 6502 based system. The language was conceived by Larry Kheriaty to demonstrate 'what a computer can do in a manner simple enough for almost anyone to understand'. [^1]
 
 ### WADUZITDO statements
 WADUZITDO is derived from the PILOT language [^2]. For the sake of simplicity WADUZITDO supports only 5 statements: 
@@ -63,7 +63,7 @@ The WADUZITDO environment includes a simple editor. Because of the editor's sign
 `↲` (or enter)
    End program line or statement.
 
-Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum length of a program line is 64 characters. The maximum length of a user program is 256 characters.
+Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum length of a program line is 64 characters. The length of a user program is limited by the available memory.
 
 Note that because of WADUZITDO's minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
 
