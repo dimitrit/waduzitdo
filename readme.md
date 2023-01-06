@@ -36,9 +36,11 @@ Following is a simple example that demonstrates some of WADUZITDO's capabilities
     M:5
     NT:NO, TRY AGAIN:  
     NJ:0
-    YT:FIVE IS RIGHT!
+    T:FIVE IS RIGHT!
     S:
 ```
+
+Further examples may be found in this repository.
    
 ### WADUZITDO editor
 The WADUZITDO environment includes a simple editor. Because of the editor's significant limitations it is considerably easier to write programs in a more capable editor and then copy and paste them into WADUZITDO. Nevertheless, following are the editor commands for those who relish a 'retro' experience:
@@ -55,15 +57,17 @@ The WADUZITDO environment includes a simple editor. Because of the editor's sign
 `%`  
    Pad remainder of the current line with nulls.
 
-`←` (or backspace)  
+`←` (or Backspace)  
    Backspace to correct typing error.
 
-`↲` (or enter)
+`↲` (or Enter)  
    End program line or statement.
 
-Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. A program line should not exceed 64 characters. The length of a user program is limited 256 bytes[^3].
+All other characters typed are stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. Existing lines may be listed using the `/` character, or overtyped and padded using the `%` character. 
 
-Note that because of WADUZITDO's minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
+Program lines should not exceed 64 characters. The length of user programs is limited 256 bytes[^3].
+
+Note that because of WADUZITDO's minimal (i.e. non-existent!) error checking and error handling capabilities, it is easy to get into a situation which requires the system to be restarted.
 
 Refer to Kheriaty's BYTE article for further details on WADUZITDO statements and the editor.
 
@@ -76,8 +80,8 @@ A `Makefile` is provided for environments that support `make(1)`.
 
 [^2]: ‘PILOT’, Wikipedia, 2021 <https://en.wikipedia.org/w/index.php?title=PILOT&oldid=1058013823> [accessed 1 January 2023].
 
-[^3]: An 'extended' version, `ewaduzitdo.asm`, is included in which user programs can occupy all remaining ram. Note that this version requires more than 256 bytes of memory!
+[^3]: An 'extended' version, `ewaduzitdo`, is included in which user programs can occupy all remaining ram. Note however that this version does not fit in 256 bytes of memory!
 
 [^4]: Volker Barthelmann and Frank Wille, _‘Vasm Assembler System’_ (2022), <http://sun.hasenbraten.de/vasm/release/vasm.pdf> [accessed 25 November 2022].
 
-[^5: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
+[^5]: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
