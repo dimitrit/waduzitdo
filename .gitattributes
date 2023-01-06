@@ -1,0 +1,6 @@
+# reclassify `.a65` files as assembly
+*.a65 linguist-language=asm
+# reclassify `*.w` files as lisp
+*.w linguist-language=lisp
+# exlude MOS papertape files
+*.pap linguist-generated
