@@ -1,13 +1,11 @@
-objects = ewaduzitdo.bin
-
 default: all
 
-all: ewaduzitdo.hex
+all: waduzitdo.hex ewaduzitdo.hex
 
 %.bin: %.a65
 	vasm6502_oldstyle -dotdir $< -o $@ -L $(basename $<).lst -Fbin -quiet -esc
 
-%.hex: $(objects)
+%.hex: %.bin
 	srec_cat  $< -binary -offset 0x200 -output $@ -Intel -address-length=2
 
 clean:
