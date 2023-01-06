@@ -1,8 +1,8 @@
-objects = waduzitdo.bin
+objects = ewaduzitdo.bin
 
 default: all
 
-all: waduzitdo.hex
+all: ewaduzitdo.hex
 
 %.bin: %.a65
 	vasm6502_oldstyle -dotdir $< -o $@ -L $(basename $<).lst -Fbin -quiet -esc

@@ -2,7 +2,7 @@
 An implementation of WADUZITDO for the KIM-1.
 
 ### Introduction
-WADUZITDO is a high level interpreted language that fits in less than 256 bytes of memory on a 6502 based system. The language was conceived by Larry Kheriaty to demonstrate 'what a computer can do in a manner simple enough for almost anyone to understand'. [^1]
+WADUZITDO is a high level interpreted language that fits in under 256 bytes of memory on a 6502 based system. The language was conceived by Larry Kheriaty to demonstrate 'what a computer can do in a manner simple enough for almost anyone to understand'. [^1]
 
 ### WADUZITDO statements
 WADUZITDO is derived from the PILOT language [^2]. For the sake of simplicity WADUZITDO supports only 5 statements: 
@@ -34,11 +34,9 @@ Following is a simple example that demonstrates some of WADUZITDO's capabilities
     T:WHAT IS 2+3?
     A:
     M:5
-    YT:FIVE IS RIGHT!
-    YJ:1
     NT:NO, TRY AGAIN:  
     NJ:0
-    *T:GOODBYE!
+    YT:FIVE IS RIGHT!
     S:
 ```
    
@@ -63,14 +61,14 @@ The WADUZITDO environment includes a simple editor. Because of the editor's sign
 `↲` (or enter)
    End program line or statement.
 
-Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. The maximum length of a program line is 64 characters. The maximum length of a user program is 256 characters.
+Any other character typed is stored in program memory. With each character typed the edit pointer is advanced by one position. This pointer may be reset using the `\` command. A program line should not exceed 64 characters. The length of a user program is limited 256 bytes[^3].
 
 Note that because of WADUZITDO's minimal error checking and error handling capabilities, it is easy to get into a situation where the entire envirement needs to be reloaded.
 
 Refer to Kheriaty's BYTE article for further details on WADUZITDO statements and the editor.
 
 ### Building WADUZITDO
-The source code uses vasm '8-bit oldstyle' syntax [^3] and can be built using the `vasm6502_oldstyle` assembler. This assembler, and the sources required to build it, can be downloaded from the vasm website [^4]. Since the code does not make use of vasm specific features it should be relatively simple to modify it for other 6502 compilers. 
+The source code uses vasm '8-bit oldstyle' syntax [^4] and can be built using the `vasm6502_oldstyle` assembler. This assembler, and the sources required to build it, can be downloaded from the vasm website [^5]. Since the code does not make use of vasm specific features it should be relatively simple to modify it for other 6502 compilers. 
 
 A `Makefile` is provided for environments that support `make(1)`.
 
@@ -78,6 +76,8 @@ A `Makefile` is provided for environments that support `make(1)`.
 
 [^2]: ‘PILOT’, Wikipedia, 2021 <https://en.wikipedia.org/w/index.php?title=PILOT&oldid=1058013823> [accessed 1 January 2023].
 
-[^3]: Volker Barthelmann and Frank Wille, _‘Vasm Assembler System’_ (2022), <http://sun.hasenbraten.de/vasm/release/vasm.pdf> [accessed 25 November 2022].
+[^3]: An 'extended' version, `ewaduzitdo.asm`, is included in which user programs can occupy all remaining ram. Note that this version requires more than 256 bytes of memory!
 
-[^4]: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
+[^4]: Volker Barthelmann and Frank Wille, _‘Vasm Assembler System’_ (2022), <http://sun.hasenbraten.de/vasm/release/vasm.pdf> [accessed 25 November 2022].
+
+[^5: Volker Barthelmann and Frank Wille, _'vasm: A portable and retargetable assembler'_ (2022), <http://sun.hasenbraten.de/vasm/index.php?view=binrel> [accessed 6 December 2022].
